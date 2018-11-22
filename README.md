@@ -15,33 +15,42 @@
 ## Test-Workflow:
 
 1. Set Environment-Variables in your OS:
+
   execute "set-system-vars.bat"
 
 2. Load dependencies:
-  $   mix deps.get --only prod
+
+  `mix deps.get --only prod`
 
 3. Build a release:
-  $   set "MIX_ENV=prod" && mix release --env=prod
+
+  `set "MIX_ENV=prod" && mix release --env=prod`
 
 4. Then you can execute one of the custom commands:
 
-  init (db create, migrate, seed)
-  $    set "COOKIE=MY_PROD_SECRET" && .\_build\prod\rel\phoenix_distillery\bin\phoenix_distillery.bat init
+  init (db create, migrate, seed):
 
-  create (db create)
-  $    set "COOKIE=MY_PROD_SECRET" && .\_build\prod\rel\phoenix_distillery\bin\phoenix_distillery.bat init
+  `set "COOKIE=MY_PROD_SECRET" && .\_build\prod\rel\phoenix_distillery\bin\phoenix_distillery.bat init`
 
-  drop (db drop)
-  $    set "COOKIE=MY_PROD_SECRET" && .\_build\prod\rel\phoenix_distillery\bin\phoenix_distillery.bat drop
+  create (db create):
 
-  migrate (db migrate)
-  $    set "COOKIE=MY_PROD_SECRET" && .\_build\prod\rel\phoenix_distillery\bin\phoenix_distillery.bat migrate
+  `set "COOKIE=MY_PROD_SECRET" && .\_build\prod\rel\phoenix_distillery\bin\phoenix_distillery.bat init`
 
-  seed (db seed)
-  $    set "COOKIE=MY_PROD_SECRET" && .\_build\prod\rel\phoenix_distillery\bin\phoenix_distillery.bat seed
+  drop (db drop):
 
-  reset (db reset)
-  $    set "COOKIE=MY_PROD_SECRET" && .\_build\prod\rel\phoenix_distillery\bin\phoenix_distillery.bat reset
+  `set "COOKIE=MY_PROD_SECRET" && .\_build\prod\rel\phoenix_distillery\bin\phoenix_distillery.bat drop`
+
+  migrate (db migrate):
+
+  `set "COOKIE=MY_PROD_SECRET" && .\_build\prod\rel\phoenix_distillery\bin\phoenix_distillery.bat migrate`
+
+  seed (db seed):
+
+  `set "COOKIE=MY_PROD_SECRET" && .\_build\prod\rel\phoenix_distillery\bin\phoenix_distillery.bat seed`
+
+  reset (db reset):
+
+  `set "COOKIE=MY_PROD_SECRET" && .\_build\prod\rel\phoenix_distillery\bin\phoenix_distillery.bat reset`
 
 
 
