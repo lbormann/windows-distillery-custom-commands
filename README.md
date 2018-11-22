@@ -1,5 +1,6 @@
 # Sample Project for a working Windows-Elixir-Distillery-Custom-Commands-Configuration.
 
+
 ## Created and tested with following System configuration
 
   * Windows 10 Pro x64
@@ -10,43 +11,37 @@
   * Distillery 2.0.12
   * PostgreSQL 10
 
+
 ## Test-Workflow:
 
-Load dependencies:
+1. Set Environment-Variables in your OS:
+  execute "set-system-vars.bat"
 
-$   mix deps.get --only prod
+2. Load dependencies:
+  $   mix deps.get --only prod
 
-Build a release:
+3. Build a release:
+  $   set "MIX_ENV=prod" && mix release --env=prod
 
-$   set "MIX_ENV=prod" && mix release --env=prod
+4. Then you can execute one of the custom commands:
 
-Then you cam execute one of the custom commands:
+  init (db create, migrate, seed)
+  $    set "COOKIE=MY_PROD_SECRET" && .\_build\prod\rel\phoenix_distillery\bin\phoenix_distillery.bat init
 
+  create (db create)
+  $    set "COOKIE=MY_PROD_SECRET" && .\_build\prod\rel\phoenix_distillery\bin\phoenix_distillery.bat init
 
-init (db create, migrate, seed)
+  drop (db drop)
+  $    set "COOKIE=MY_PROD_SECRET" && .\_build\prod\rel\phoenix_distillery\bin\phoenix_distillery.bat drop
 
-$    set "COOKIE=MY_PROD_SECRET" && .\_build\prod\rel\phoenix_distillery\bin\phoenix_distillery.bat init
+  migrate (db migrate)
+  $    set "COOKIE=MY_PROD_SECRET" && .\_build\prod\rel\phoenix_distillery\bin\phoenix_distillery.bat migrate
 
-create (db create)
+  seed (db seed)
+  $    set "COOKIE=MY_PROD_SECRET" && .\_build\prod\rel\phoenix_distillery\bin\phoenix_distillery.bat seed
 
-$    set "COOKIE=MY_PROD_SECRET" && .\_build\prod\rel\phoenix_distillery\bin\phoenix_distillery.bat init
-
-drop (db drop)
-
-$    set "COOKIE=MY_PROD_SECRET" && .\_build\prod\rel\phoenix_distillery\bin\phoenix_distillery.bat drop
-
-migrate (db migrate)
-
-$    set "COOKIE=MY_PROD_SECRET" && .\_build\prod\rel\phoenix_distillery\bin\phoenix_distillery.bat migrate
-
-seed (db seed)
-
-$    set "COOKIE=MY_PROD_SECRET" && .\_build\prod\rel\phoenix_distillery\bin\phoenix_distillery.bat seed
-
-reset (db reset)
-
-$    set "COOKIE=MY_PROD_SECRET" && .\_build\prod\rel\phoenix_distillery\bin\phoenix_distillery.bat reset
-
+  reset (db reset)
+  $    set "COOKIE=MY_PROD_SECRET" && .\_build\prod\rel\phoenix_distillery\bin\phoenix_distillery.bat reset
 
 
 
